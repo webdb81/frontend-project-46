@@ -13,13 +13,10 @@ test('compare test', () => {
   const expectedFile = getFilePath('expected_result.txt');
 
   const compareFiles = gendiff(file1, file2);
-  // const expectedResult = fs.readFileSync(expectedFile, { encoding: 'utf-8' });
   const expectedResult = fs.readFileSync(expectedFile, 'utf-8');
 
-  // console.log(file1);
-  // console.log(file2);
-  console.log(`Received\n${compareFiles}`);
-  console.log(`Expected\n${expectedResult}`);
+  // console.log(`Received\n${compareFiles}`);
+  // console.log(`Expected\n${expectedResult}`);
 
   // expect(compareFiles).toBe(expectedResult);
   expect(compareFiles).toEqual(expectedResult);
