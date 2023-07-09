@@ -1,6 +1,6 @@
 {
   "name": "@hexlet/code",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "type": "module",
   "description": "Comparing of two files with displaying differences",
   "bin": {
@@ -8,7 +8,7 @@
   },
   "main": "src/index.js",
   "scripts": {
-    "test": "jest --colors --coverage"
+    "test": "jest --colors"
   },
   "repository": {
     "type": "git",
