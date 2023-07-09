@@ -12,6 +12,6 @@ jobs:
       - name: Code coverage
         uses: paambaati/codeclimate-action@v5.0.0
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+          CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMATE_TEST_COVERAGE }}
         with:
           coverageCommand: npm run test:coverage

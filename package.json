@@ -8,7 +8,8 @@
   },
   "main": "src/index.js",
   "scripts": {
-    "test": "jest --colors"
+    "test": "npx jest --colors",
+    "test:coverage": "npx jest --coverage"
   },
   "repository": {
     "type": "git",
