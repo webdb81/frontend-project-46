@@ -3,3 +3,8 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/156b68720f2aac60f94e/maintainability)](https://codeclimate.com/github/webdb81/frontend-project-46/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/156b68720f2aac60f94e/test_coverage)](https://codeclimate.com/github/webdb81/frontend-project-46/test_coverage)
 [![Jest](https://github.com/webdb81/frontend-project-46/actions/workflows/jest.yml/badge.svg)](https://github.com/webdb81/frontend-project-46/actions/workflows/jest.yml)
+
+
+## Usage example
+
+[![asciicast](https://asciinema.org/a/S1WWBh3EodPebO96rxY54qyPk.svg)](https://asciinema.org/a/S1WWBh3EodPebO96rxY54qyPk)

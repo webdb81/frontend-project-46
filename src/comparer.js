@@ -1,7 +1,5 @@
 import _ from 'lodash';
 
-/* v1
-*/
 const comparer = (dataFile1, dataFile2) => {
   const keys = _.union(Object.keys(dataFile1), Object.keys(dataFile2)).sort();
   // const keys = _.union(_.keys(dataFile1), _.keys(dataFile2)).sort();
@@ -55,39 +53,3 @@ const comparer = (dataFile1, dataFile2) => {
 };
 
 export default comparer;
-
-/* v2
-const comparer = (dataFile1, dataFile2) => {
-  const keys = _.union(Object.keys(dataFile1), Object.keys(dataFile2)).sort();
-  // const keys = _.union(_.keys(dataFile1), _.keys(dataFile2)).sort();
-
-  const getDiff = keys.map((key) => {
-    // Key in file2, not in file1 — ADDED
-    if (!Object.hasOwn(dataFile1, key)) {
-      return `  + ${key}: ${dataFile2[key]}`;
-    }
-
-    // Key in file1, not in file2 — DELETED
-    if (!Object.hasOwn(dataFile2, key)) {
-      return `  - ${key}: ${dataFile1[key]}`;
-    }
-
-    // Keys Same, Values Different — CHANGED
-    if (!_.isEqual(dataFile1[key], dataFile2[key])) {
-      return `  - ${key}: ${dataFile1[key]}\n  + ${key}: ${dataFile2[key]}`;
-    }
-
-    // Keys Same, Values Same — UNCHANGED
-    return `    ${key}: ${dataFile1[key]}`;
-  });
-
-  // Output v1
-  // const resultConcat = _.concat('{', getDiff, '}');
-  // const result = _.join(resultConcat, '\n');
-  // return result;
-
-  // Output v2
-  const result = `{\n${getDiff.join('\n')}\n}`;
-  return result;
-};
-*/

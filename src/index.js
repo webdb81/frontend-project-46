@@ -1,31 +1,20 @@
-// import path from 'path';
 import fs from 'fs';
+import * as path from 'path';
 import comparer from './comparer.js';
+import parse from './parsers.js';
 
-/* v1
-const getFilePath = (filepath) => path.resolve(process.cwd(), filepath);
-const getData = (filepath) => JSON.parse(fs.readFileSync(filepath, 'utf-8'));
+const gendiff = (filePath1, filePath2) => {
+  const getFilePath = (fileName) => path.resolve(process.cwd(), fileName);
+  const getFileFormat = (fileName) => fileName.split('.')[1];
+  const readFile = (filePath) => fs.readFileSync(filePath, 'utf8');
 
-const gendiff = (filepath1, filepath2) => {
-  const dataFile1 = getData(getFilePath(filepath1));
-  const dataFile2 = getData(getFilePath(filepath2));
+  const dataFile1 = getFilePath(filePath1);
+  const dataFile2 = getFilePath(filePath2);
 
-  return comparer(dataFile1, dataFile2);
-};
+  const dataParsedFile1 = parse(readFile(dataFile1), getFileFormat(dataFile1));
+  const dataParsedFile2 = parse(readFile(dataFile2), getFileFormat(dataFile2));
 
-export default gendiff;
-*/
-
-/* v2
-*/
-const gendiff = (filepath1, filepath2) => {
-  const dataFile1 = JSON.parse(fs.readFileSync(filepath1, 'utf-8'));
-  const dataFile2 = JSON.parse(fs.readFileSync(filepath2, 'utf-8'));
-
-  // const dataParse1 = JSON.parse(dataFile1);
-  // const dataParse2 = JSON.parse(dataFile2);
-
-  return comparer(dataFile1, dataFile2);
+  return comparer(dataParsedFile1, dataParsedFile2);
 };
 
 export default gendiff;

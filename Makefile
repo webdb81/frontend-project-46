@@ -10,5 +10,8 @@ gendiff -h:
 publish:
 	npm publish --dry-run
 
+test-coverage:
+	npm test -- --coverage
+
 lint:
 	npx eslint .
