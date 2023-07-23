@@ -7,4 +7,26 @@
 
 ## Usage example
 
+### Comparison of flat structures
+
+```bash
+gendiff filePath1.json filePath2.json
+```
+
 [![asciicast](https://asciinema.org/a/S1WWBh3EodPebO96rxY54qyPk.svg)](https://asciinema.org/a/S1WWBh3EodPebO96rxY54qyPk)
+
+## Recursive comparison
+
+Recursive comparison by default formatter styling:
+
+```bash
+gendiff __fixtures__/file1.yml __fixtures__/file2.yml
+```
+
+Recursive comparison with setting formatter styling:
+
+```bash
+gendiff --format stylish __fixtures__/file1.yml __fixtures__/file2.yml
+```
+
+[![asciicast](https://asciinema.org/a/kKBZkFY97kXqpJa1nQWPpak39.svg)](https://asciinema.org/a/kKBZkFY97kXqpJa1nQWPpak39)

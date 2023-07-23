@@ -1,6 +1,7 @@
 import fs from 'fs';
 import * as path from 'path';
 import comparer from './comparer.js';
+import stylish from './stylish.js';
 import parse from './parsers.js';
 
 const gendiff = (filePath1, filePath2) => {
@@ -14,7 +15,9 @@ const gendiff = (filePath1, filePath2) => {
   const dataParsedFile1 = parse(readFile(dataFile1), getFileFormat(dataFile1));
   const dataParsedFile2 = parse(readFile(dataFile2), getFileFormat(dataFile2));
 
-  return comparer(dataParsedFile1, dataParsedFile2);
+  const diffOutput = comparer(dataParsedFile1, dataParsedFile2);
+
+  return stylish(diffOutput);
 };
 
 export default gendiff;
