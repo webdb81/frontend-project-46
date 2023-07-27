@@ -30,3 +30,19 @@ gendiff --format stylish __fixtures__/file1.yml __fixtures__/file2.yml
 ```
 
 [![asciicast](https://asciinema.org/a/kKBZkFY97kXqpJa1nQWPpak39.svg)](https://asciinema.org/a/kKBZkFY97kXqpJa1nQWPpak39)
+
+## «Flat» comparison for json-files
+
+```bash
+gendiff -f plain __fixtures__/file1.json __fixtures__/file2.json
+```
+
+[![asciicast](https://asciinema.org/a/8OBxaRx2Yn3BnH4dWIYj8Rvto.svg)](https://asciinema.org/a/8OBxaRx2Yn3BnH4dWIYj8Rvto)
+
+## «Flat» comparison for yaml-files
+
+```bash
+gendiff -f plain __fixtures__/file1.yml __fixtures__/file2.yml
+```
+
+[![asciicast](https://asciinema.org/a/2N0ONPDvZ6CgCrB8rdGP00B3U.svg)](https://asciinema.org/a/2N0ONPDvZ6CgCrB8rdGP00B3U)

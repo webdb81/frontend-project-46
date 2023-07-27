@@ -1,14 +1,15 @@
 import fs from 'fs';
 import * as path from 'path';
 import comparer from './comparer.js';
-import stylish from './stylish.js';
+import styling from './formatters/index.js';
 import parse from './parsers.js';
 
-const gendiff = (filePath1, filePath2) => {
-  const getFilePath = (fileName) => path.resolve(process.cwd(), fileName);
-  const getFileFormat = (fileName) => fileName.split('.')[1];
-  const readFile = (filePath) => fs.readFileSync(filePath, 'utf8');
+const getFilePath = (fileName) => path.resolve(process.cwd(), fileName);
+const getFileFormat = (fileName) => fileName.split('.')[1];
+// const getFileFormat = (fileName) => path.extname(fileName).slice(1);
+const readFile = (filePath) => fs.readFileSync(filePath, 'utf8');
 
+const gendiff = (filePath1, filePath2, fileFormat) => {
   const dataFile1 = getFilePath(filePath1);
   const dataFile2 = getFilePath(filePath2);
 
@@ -17,7 +18,7 @@ const gendiff = (filePath1, filePath2) => {
 
   const diffOutput = comparer(dataParsedFile1, dataParsedFile2);
 
-  return stylish(diffOutput);
+  return styling(diffOutput, fileFormat);
 };
 
 export default gendiff;

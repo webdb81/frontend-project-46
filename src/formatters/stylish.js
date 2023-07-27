@@ -20,23 +20,23 @@ const stringify = (value, level) => {
 const stylish = (diffOutput, level = 1) => {
   const offset = getOffset(level).slice(0, -2);
   const bracketOffset = getOffset(level - 1);
-  const rows = diffOutput.flatMap((item) => {
-    switch (item.type) {
+  const rows = diffOutput.map((node) => {
+    switch (node.type) {
+      case 'nested':
+        return `${offset}  ${node.key}: ${stylish(node.children, level + 1)}`;
       case 'added':
-        return `${offset}+ ${item.key}: ${stringify(item.value, level + 1)}`;
+        return `${offset}+ ${node.key}: ${stringify(node.value, level + 1)}`;
       case 'deleted':
-        return `${offset}- ${item.key}: ${stringify(item.value, level + 1)}`;
+        return `${offset}- ${node.key}: ${stringify(node.value, level + 1)}`;
       case 'changed':
         return [
-          `${offset}- ${item.key}: ${stringify(item.valueMinus, level + 1)}`,
-          `${offset}+ ${item.key}: ${stringify(item.valuePlus, level + 1)}`,
+          `${offset}- ${node.key}: ${stringify(node.valueMinus, level + 1)}`,
+          `${offset}+ ${node.key}: ${stringify(node.valuePlus, level + 1)}`,
         ].join('\n');
       case 'unchanged':
-        return `${offset}  ${item.key}: ${stringify(item.value, level + 1)}`;
-      case 'nested':
-        return `${offset}  ${item.key}: ${stylish(item.children, level + 1)}`;
+        return `${offset}  ${node.key}: ${stringify(node.value, level + 1)}`;
       default:
-        throw new Error(`Received item type <${item.type}> is unknown.`);
+        throw new Error(`Received node type <${node.type}> is unknown.`);
     }
   });
   return [
