@@ -1,6 +1,6 @@
 {
   "name": "@hexlet/code",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "type": "module",
   "description": "Comparing of two files with displaying differences",
   "bin": {
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/webdb81/frontend-project-44.git"
+    "url": "git+https://github.com/webdb81/frontend-project-46.git"
   },
   "author": "webdb81",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/webdb81/frontend-project-44/issues"
+    "url": "https://github.com/webdb81/frontend-project-46/issues"
   },
-  "homepage": "https://github.com/webdb81/frontend-project-44#readme",
+  "homepage": "https://github.com/webdb81/frontend-project-46#readme",
   "dependencies": {
     "@jest/globals": "^29.5.0",
     "commander": "^11.0.0",

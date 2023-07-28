@@ -11,19 +11,16 @@ const comparer = (dataFile1, dataFile2) => {
     }
 
     // Key in file2, not in file1 — ADDED
-    // if (!_.has(dataFile1, key)) {
     if (!Object.hasOwn(dataFile1, key)) {
       return { key, value: dataFile2[key], type: 'added' };
     }
 
     // Key in file1, not in file2 — DELETED
-    // if (!_.has(dataFile2, key)) {
     if (!Object.hasOwn(dataFile2, key)) {
       return { key, value: dataFile1[key], type: 'deleted' };
     }
 
     // Keys Same, Values Different — CHANGED
-    // if (_.has(dataFile1, key) && _.has(dataFile2, key)) {
     if (!_.isEqual(dataFile1[key], dataFile2[key])) {
       return {
         key, valueMinus: dataFile1[key], valuePlus: dataFile2[key], type: 'changed',
@@ -31,7 +28,6 @@ const comparer = (dataFile1, dataFile2) => {
     }
 
     // Keys Same, Values Same — UNCHANGED
-    // if (_.has(dataFile1, key) && _.has(dataFile2, key)) {
     return { key, value: dataFile1[key], type: 'unchanged' };
   });
 
