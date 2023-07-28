@@ -5,7 +5,6 @@ const parse = (fileData, fileFormat) => {
     case 'json':
       return JSON.parse(fileData);
     case 'yml':
-    case 'yaml':
       return yaml.load(fileData);
     default:
       throw new Error(`Does not support ${fileFormat} format.`);

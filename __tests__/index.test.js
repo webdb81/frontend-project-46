@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 const getFilePath = (fileName) => path.join(__dirname, '..', '__fixtures__', fileName);
 
 const getExpectedResult = (fileName) => fs.readFileSync(getFilePath(fileName), 'utf-8');
-const fileFormat = ['json', 'yml', 'yaml'];
+const fileFormat = ['json', 'yml'];
 
 // test.each(fileFormat)('compare %s files', (format) => {
 test.each(fileFormat)('compare %p files', (format) => {
