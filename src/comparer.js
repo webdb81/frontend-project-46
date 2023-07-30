@@ -11,12 +11,15 @@ const comparer = (dataFile1, dataFile2) => {
     }
 
     // Key in file2, not in file1 — ADDED
-    if (!Object.hasOwn(dataFile1, key)) {
+    // if (!Object.hasOwn(dataFile1, key)) {
+    // eslint-disable-next-line no-prototype-builtins
+    if (!dataFile1.hasOwnProperty(key)) {
       return { key, value: dataFile2[key], type: 'added' };
     }
 
     // Key in file1, not in file2 — DELETED
-    if (!Object.hasOwn(dataFile2, key)) {
+    // eslint-disable-next-line no-prototype-builtins
+    if (!dataFile2.hasOwnProperty(key)) {
       return { key, value: dataFile1[key], type: 'deleted' };
     }
 
