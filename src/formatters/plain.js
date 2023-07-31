@@ -21,7 +21,7 @@ const plain = (dataFile, key = '') => {
       case 'unchanged':
         return [];
       case 'nested':
-        return plain(node.children, currentKey);
+        return plain(node.value, currentKey);
       default:
         throw new Error(`Received node type ${node.type} is unknown.`);
     }

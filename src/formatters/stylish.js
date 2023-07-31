@@ -23,7 +23,7 @@ const stylish = (diffOutput, level = 1) => {
   const rows = diffOutput.map((node) => {
     switch (node.type) {
       case 'nested':
-        return `${offset}  ${node.key}: ${stylish(node.children, level + 1)}`;
+        return `${offset}  ${node.key}: ${stylish(node.value, level + 1)}`;
       case 'added':
         return `${offset}+ ${node.key}: ${stringify(node.value, level + 1)}`;
       case 'deleted':

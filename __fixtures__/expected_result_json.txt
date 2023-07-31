@@ -1,7 +1,7 @@
 [
   {
     "key": "common",
-    "children": [
+    "value": [
       {
         "key": "follow",
         "value": false,
@@ -37,10 +37,10 @@
       },
       {
         "key": "setting6",
-        "children": [
+        "value": [
           {
             "key": "doge",
-            "children": [
+            "value": [
               {
                 "key": "wow",
                 "valueMinus": "",
@@ -68,7 +68,7 @@
   },
   {
     "key": "group1",
-    "children": [
+    "value": [
       {
         "key": "baz",
         "valueMinus": "bas",
