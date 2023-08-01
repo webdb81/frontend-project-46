@@ -1,4 +1,4 @@
-# Utility for comparison of two files with displaying differences
+# Utility for comparison of two structured-data files with displaying differences
 
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/webdb81/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/webdb81/frontend-project-46/actions)
@@ -11,6 +11,7 @@
 
 - [Node.js](https://nodejs.org/en) version 16 or higher.
 - Terminal for performing files comparison via command line interface (CLI).
+- Unix-like operating system.
 
 ## Install
 

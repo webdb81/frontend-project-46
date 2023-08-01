@@ -11,6 +11,6 @@ export default (diffOutput, fileFormat) => {
     case 'json':
       return json(diffOutput);
     default:
-      throw new Error(`Received file format <${fileFormat}> is not supported`);
+      throw new Error(`Received for styling file format <${fileFormat}> is not supported`);
   }
 };

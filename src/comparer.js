@@ -5,20 +5,30 @@ const comparer = (dataFile1, dataFile2) => {
   const keys = _.sortBy(_.union(_.keys(dataFile1), _.keys(dataFile2)));
 
   const getDiff = keys.map((key) => {
-    if (_.isObject(dataFile1[key]) && _.isObject(dataFile2[key])) {
-      return { key, value: comparer(dataFile1[key], dataFile2[key]), type: 'nested' };
+    // Same Keys in Both Files is Object: build NESTED childrens
+    if (_.isPlainObject(dataFile1[key]) && _.isPlainObject(dataFile2[key])) {
+      return { key, type: 'nested', value: comparer(dataFile1[key], dataFile2[key]) };
     }
-    if (!_.has(dataFile1, key)) return { key, value: dataFile2[key], type: 'added' };
-    if (!_.has(dataFile2, key)) return { key, value: dataFile1[key], type: 'deleted' };
+
+    // Key in file2, not in file1 — ADDED
+    if (!_.has(dataFile1, key)) {
+      return { key, type: 'added', value: dataFile2[key] };
+    }
+
+    // Key in file1, not in file2 — DELETED
+    if (!_.has(dataFile2, key)) {
+      return { key, type: 'deleted', value: dataFile1[key] };
+    }
+
+    // Keys Same, Values Different — CHANGED
     if (dataFile1[key] !== dataFile2[key]) {
       return {
-        key,
-        valueMinus: dataFile1[key],
-        valuePlus: dataFile2[key],
-        type: 'changed',
+        key, type: 'changed', value1: dataFile1[key], value2: dataFile2[key],
       };
     }
-    return { key, value: dataFile2[key], type: 'unchanged' };
+
+    // Keys Same, Values Same — UNCHANGED
+    return { key, type: 'unchanged', value: dataFile2[key] };
   });
 
   return getDiff;
