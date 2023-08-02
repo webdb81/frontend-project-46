@@ -5,7 +5,8 @@ const stringify = (value) => {
     return '[complex value]';
   }
 
-  return _.isString(value) ? `'${value}'` : value;
+  // return _.isString(value) ? `'${value}'` : value;
+  return _.isString(value) ? `'${value}'` : String(value);
 };
 
 const plain = (dataFile, key = '') => {
