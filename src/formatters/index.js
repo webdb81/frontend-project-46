@@ -2,8 +2,8 @@ import stylish from './stylish.js';
 import plain from './plain.js';
 import json from './json.js';
 
-export default (diffOutput, fileFormat) => {
-  switch (fileFormat) {
+export default (diffOutput, formatName) => {
+  switch (formatName) {
     case 'stylish':
       return stylish(diffOutput);
     case 'plain':
@@ -11,6 +11,6 @@ export default (diffOutput, fileFormat) => {
     case 'json':
       return json(diffOutput);
     default:
-      throw new Error(`Received for styling file format <${fileFormat}> is not supported`);
+      throw new Error(`Output format styling <${formatName}> is not supported`);
   }
 };

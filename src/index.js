@@ -9,7 +9,7 @@ const getFileFormat = (fileName) => fileName.split('.')[1];
 // const getFileFormat = (fileName) => path.extname(fileName).slice(1);
 const readFile = (filePath) => fs.readFileSync(filePath, 'utf8');
 
-const gendiff = (filePath1, filePath2, fileFormat) => {
+const gendiff = (filePath1, filePath2, formatName = 'stylish') => {
   const dataFile1 = getFilePath(filePath1);
   const dataFile2 = getFilePath(filePath2);
 
@@ -18,7 +18,7 @@ const gendiff = (filePath1, filePath2, fileFormat) => {
 
   const diffOutput = comparer(dataParsedFile1, dataParsedFile2);
 
-  return styling(diffOutput, fileFormat);
+  return styling(diffOutput, formatName);
 };
 
 export default gendiff;
