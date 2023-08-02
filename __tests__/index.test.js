@@ -15,7 +15,7 @@ test.each(fileFormat)('compare %p files', (format) => {
   const file1 = getFilePath(`file1.${format}`);
   const file2 = getFilePath(`file2.${format}`);
 
-  expect(gendiff(file1, file2, 'json')).toEqual(getExpectedResult('expected_result_json.txt'));
   expect(gendiff(file1, file2, 'stylish')).toEqual(getExpectedResult('expected_result_stylish.txt'));
   expect(gendiff(file1, file2, 'plain')).toEqual(getExpectedResult('expected_result_plain.txt'));
+  expect(gendiff(file1, file2, 'json')).toEqual(getExpectedResult('expected_result_json.txt'));
 });
