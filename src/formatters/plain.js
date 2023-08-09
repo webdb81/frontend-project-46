@@ -9,22 +9,25 @@ const stringify = (value) => {
   return _.isString(value) ? `'${value}'` : String(value);
 };
 
-const plain = (dataFile, key = '') => {
+const plain = (dataFile, propertyKey = '') => {
   const rows = dataFile.flatMap((node) => {
-    const currentKey = key ? `${key}.${node.key}` : node.key;
-    switch (node.type) {
+    const {
+      type, key, value, value1, value2,
+    } = node;
+    const currentKey = propertyKey ? `${propertyKey}.${key}` : key;
+    switch (type) {
       case 'nested':
-        return plain(node.value, currentKey);
+        return plain(value, currentKey);
       case 'added':
-        return `Property '${currentKey}' was added with value: ${stringify(node.value)}`;
+        return `Property '${currentKey}' was added with value: ${stringify(value)}`;
       case 'deleted':
         return `Property '${currentKey}' was removed`;
       case 'changed':
-        return `Property '${currentKey}' was updated. From ${stringify(node.value1)} to ${stringify(node.value2)}`;
+        return `Property '${currentKey}' was updated. From ${stringify(value1)} to ${stringify(value2)}`;
       case 'unchanged':
         return [];
       default:
-        throw new Error(`Received node type ${node.type} is unknown.`);
+        throw new Error(`Received node type ${type} is unknown.`);
     }
   });
   return rows.join('\n');
